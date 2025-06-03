@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+    <title>Weather Stats</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        table { border-collapse: collapse; width: 50%; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>Descriptive Weather Statistics</h1>
+    {% if records %}
+        <table>
+            <tr>
+                <th>Average Temp</th>
+                <th>Max Temp</th>
+                <th>Min Temp</th>
+            </tr>
+            {% for row in records %}
+            <tr>
+                <td>{{ row.avg_temp }}</td>
+                <td>{{ row.max_temp }}</td>
+                <td>{{ row.min_temp }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No data available.</p>
+    {% endif %}
+</body>
+</html>
