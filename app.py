@@ -3,7 +3,6 @@ import requests
 
 app = Flask(__name__)
 
-# Replace with your actual API Gateway URL
 API_URL = "https://xso7ro9h82.execute-api.us-east-1.amazonaws.com/ReadBucket"
 
 @app.route('/')
@@ -11,7 +10,7 @@ def index():
     try:
         response = requests.get(API_URL)
         response.raise_for_status()
-        data = response.json()  # This should be a list of records
+        data = response.json()
         return render_template('index.html', records=data)
     except Exception as e:
         return f"Error fetching data: {e}", 500
