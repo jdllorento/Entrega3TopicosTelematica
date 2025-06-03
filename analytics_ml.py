@@ -7,10 +7,10 @@ from pyspark.ml.clustering import KMeans
 spark = SparkSession.builder.appName("AdvancedAnalytics").getOrCreate()
 
 # Leer datos de zona trusted
-df = spark.read.option("header", True).csv("s3://open-meteo-bucket-batchproject/trusted/**/*.csv")
+df = spark.read.option("header", True).csv("s3a://open-meteo-bucket-batchproject/trusted/**/*.csv")
 
 # Preprocesamiento
-features = ["temp_max", "precip"]
+features = ["temperature_2m_max", "wind_speed_10m_max", "precipitation_sum"]
 df = df.select(*(col(f).cast("float") for f in features)).na.drop()
 
 assembler = VectorAssembler(inputCols=features, outputCol="features")
