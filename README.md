@@ -154,4 +154,4 @@ You don't have permission to iam:CreateUser
 
  * Todos los scripts, incluso los que no se utilizaron por las limitaciones se encuentran en la rama master del repositorio.
 
-# 6. Referencias
+# 6. Video sustentación
